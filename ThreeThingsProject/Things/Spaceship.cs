@@ -7,7 +7,6 @@ namespace ThreeThingsProject.Things
         protected string _name;
         protected string _destination;
         protected bool _readyToFly;
-        protected bool _launched;
         // ^ protected fields on a class
 
         public string Name
