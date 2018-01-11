@@ -44,9 +44,14 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Things\Book.cs" />
+    <Compile Include="Things\Example.cs" />
+    <Compile Include="Things\Flower.cs" />
+    <Compile Include="Things\Spaceship.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

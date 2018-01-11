@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using ThreeThingsProject.Things;
 
 namespace ThreeThingsProject
 {
@@ -10,6 +7,24 @@ namespace ThreeThingsProject
     {
         static void Main(string[] args)
         {
+            var spaceship = new Spaceship
+            {
+                Name = "Cassini",
+                Destination = "Venus",
+                ReadyToFly = false
+            };
+            spaceship.Launch(spaceship.ReadyToFly);
+            Console.ReadLine();
+
+            var secondSpaceship = new Spaceship
+            {
+                Destination = "Moon",
+                ReadyToFly = true
+            };
+            secondSpaceship.Launch(secondSpaceship.ReadyToFly, secondSpaceship.Destination);
+            Console.ReadLine();
         }
+
     }
 }
+
