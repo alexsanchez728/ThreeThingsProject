@@ -1,5 +1,5 @@
 ﻿using System;
-using ThreeThingsProject.Things;
+using ThreeThingsProject.Things; // Have to state "dependancies," other Classes being used in this Main
 
 namespace ThreeThingsProject
 {
@@ -7,6 +7,7 @@ namespace ThreeThingsProject
     {
         static void Main(string[] args)
         {
+            // Object Initialization
             var flower = new Flower
             {
                 Name = "Cosmo",
@@ -15,13 +16,19 @@ namespace ThreeThingsProject
             };
             flower.Blossoming(flower.InBloom);
 
-
-
+            // Object Initialization
+            var book = new Book
+            {
+                Name = "Foundation and Empire",
+                Pages = 275,
+                IsDigital = false
+            };
+            book.Format(book.IsDigital); // Using non-overloaded Method
 
             // Object Initialization
             var spaceship = new Spaceship
             {
-                Name = "Cassini",
+                Name = "Cassini", // By setting the name here, I'm writting over the inital value in Spaceship class
                 Destination = "Venus",
                 ReadyToFly = false
             };
@@ -31,7 +38,7 @@ namespace ThreeThingsProject
             // Another Object Initialization
             var secondSpaceship = new Spaceship
             {
-                // Name not set; wanted to use the inital value 'Apollo 8' in this case
+                // Name not set; Name will be inital value: 'Apollo 8'
                 Destination = "Moon",
                 ReadyToFly = true
             };
