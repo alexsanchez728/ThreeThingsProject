@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using ThreeThingsProject.Things; // Have to state "dependancies," other Classes being used in this Main
 
 namespace ThreeThingsProject
@@ -7,45 +8,62 @@ namespace ThreeThingsProject
     {
         static void Main(string[] args)
         {
-            // Object Initialization
-            var flower = new Flower
+            var flowers = new List<Flower> // List of Child instances
             {
-                Name = "Cosmo",
-                PetalCount = 12,
-                InBloom = false
+                new Flower { Name = "Cosmo", PetalCount = 12, InBloom = false },
+                new Flower { Name = "Snapdragons", PetalCount = 6, InBloom = true },
+                new Flower { Name = "Lavander", PetalCount = 48, InBloom = true }
+                // ^ using object initializers inside of initializing a List
             };
-            flower.Blossoming(flower.InBloom);
 
-            // Object Initialization
-            var book = new Book
+            var books = new List<Book>
             {
-                Name = "Foundation and Empire",
-                Pages = 275,
-                IsDigital = false
+                new Book {Name = "Foundation", Pages = 250, IsDigital = false},
+                new Book {Name = "Foundation and Empire", Pages = 250, IsDigital = false},
+                new Book {Name = "Second Foundation", Pages = 247, IsDigital = false}
             };
-            book.Format(book.IsDigital); // Using non-overloaded Method
 
-            // Object Initialization
-            var spaceship = new Spaceship
+            var spaceships = new List<Spaceship>
             {
-                Name = "Cassini", // By setting the name here, I'm writting over the inital value in Spaceship class
-                Destination = "Venus",
-                ReadyToFly = false
+                new Spaceship {Destination = "Moon", ReadyToFly = true},
+                new Spaceship {Name = "Cassini", Destination = "Venus", ReadyToFly = false},
+                new Spaceship {Name = "Dragon", Destination = "ISS", ReadyToFly = true}
             };
-            spaceship.Launch(spaceship.ReadyToFly); // Using Method
-            Console.ReadLine();
 
-            // Another Object Initialization
-            var secondSpaceship = new Spaceship
+            var bikes = new List<Bike>
             {
-                // Name not set; Name will be inital value: 'Apollo 8'
-                Destination = "Moon",
-                ReadyToFly = true
+                new Bike {Brand = "Huffy", IsOneSpeed = true},
+                new Bike {Brand = "Kona", IsOneSpeed = false},
+                new Bike {Brand = "Pure Fix", IsOneSpeed = true}
             };
-            secondSpaceship.Launch(secondSpaceship.ReadyToFly, secondSpaceship.Destination); // Using Overloaded Method
+
+            foreach (var spaceship in spaceships)
+            {
+                spaceship.Launch(spaceship.ReadyToFly, spaceship.Destination);
+            }
+
+            foreach (var book in books)
+            {
+                Console.WriteLine($"{book.Name} has {book.Pages} pages and is " + $"{(book.IsDigital ? "an eBook." : "a physical book.")}");
+            }
+
+            foreach (var flower in flowers)
+            {
+                Console.WriteLine($"{flower.Name} has {flower.PetalCount} petals and is " + $"{(flower.InBloom ? "in bloom yay!" : "not in bloom, boo.")}");
+            }
+
+            foreach (var bike in bikes)
+            {
+                if (bike.IsOneSpeed)
+                {
+                    Console.WriteLine(bike.CoolerThanOthers(bike.IsOneSpeed));
+                    continue;
+                }
+                Console.WriteLine($"Cool {bike.Brand} dude.");
+            }
+
             Console.ReadLine();
         }
-
     }
 }
 

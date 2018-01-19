@@ -80,7 +80,7 @@ namespace ThreeThingsProject.Things
             return "Sorry";
         }
 
-        public string Launch(bool isReadyToFly, string destination) // <== Method Overload
+        public void Launch(bool isReadyToFly, string destination) // <== Method Overload
         {
             if (!isReadyToFly)
             {
@@ -90,12 +90,14 @@ namespace ThreeThingsProject.Things
                 Console.WriteLine($"Destination: {_destination}");
                 Console.WriteLine("Ship is not ready to fly");
             }
+            if (isReadyToFly)
+            {
             Console.WriteLine("Flight Status:");
             Console.WriteLine($"Name: {_name}");
             Console.WriteLine($"Flight Ready: {_readyToFly}");
             Console.WriteLine($"Destination: {_destination}");
             Console.WriteLine("Everything looks good. We have lift off");
-            return "We have liftoff";
+            }
         }
     }
 }

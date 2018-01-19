@@ -4,32 +4,10 @@ namespace ThreeThingsProject.Things
 {
     class Flower
     {
-        protected string _name;
-        protected int _petalCount;
         protected bool _inBloom;
 
-        public string Name
-        {
-            get
-            {
-                return _name;
-            }
-            set
-            {
-                _name = value;
-            }
-        }
-        public int PetalCount
-        {
-            get
-            {
-                return _petalCount;
-            }
-            set
-            {
-                _petalCount = value;
-            }
-        }
+        public string Name { get; set; }
+        public int PetalCount { get; set; }
         public bool InBloom
         {
             get
@@ -56,10 +34,10 @@ namespace ThreeThingsProject.Things
         {
             if (!Inbloom)
             {
-                Console.WriteLine($"{_name} is not in bloom. Must not be spring.");
+                Console.WriteLine($"{Name} is not in bloom. Must not be spring.");
                 return "Too cold";
             }
-            Console.WriteLine($"{_name} is in bloom! It must be spring.");
+            Console.WriteLine($"{Name} is in bloom! It must be spring.");
             return "yay";
         }
     }
